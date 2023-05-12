@@ -1,0 +1,37 @@
+﻿@using Microsoft.AspNetCore.Http;
+@model List<Menu>
+
+
+   <form asp-action="search" asp-controller="Menu" method="get">
+     Enter  part of name meal
+<input type="text" name="searchkey" />
+<button type="submit">search </button>
+</form>
+<br />
+<br />
+<table class="table table-bordered table-bordered table-striped">
+    <tr>
+        <th> item_id</th>
+        <th> name</th>
+        <th>description  </th>
+        <th>price</th>
+      
+
+    </tr>
+
+    @foreach (Menu m in Model)
+    {
+        <tr>
+            <td> @m.Menuid </td>
+            <td>@m.name</td>
+            <td> @m.description</td>
+            <td> @m.price</td>
+         
+          
+        </tr>
+    }
+    </table>
+
+ 
+
+

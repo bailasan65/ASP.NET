@@ -1,0 +1,27 @@
+﻿@model orders
+<form asp-action="Add" asp-controller="orders" method="post">
+    <div class="form-group">
+        <label asp-for="Menuid">item_id</label>
+        <input type="number" asp-for="Menuid" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="name">name</label>
+        <input type="string" asp-for="name" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="description">description</label>
+        <input type="string" asp-for="description" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="quantity"> Quntity</label>
+        <input type="number" asp-for="quantity" class="form-control">
+    </div>
+    <div class="form-group">
+        <label asp-for="customerid">customerid</label>
+        <input type="number" asp-for="customerid" class="form-control">
+    </div>
+    <br>
+    <button type="submit">Add</button>
+
+</form>
+

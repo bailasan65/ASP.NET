@@ -1,0 +1,20 @@
+﻿@model List<Customer>
+<table class="table table-bordered table-bordered table-striped">
+    <tr> 
+        <th> customerid</th>
+        <th> name</th>
+        <th>address </th>
+        <th> phone</th>
+    </tr>
+    
+        @foreach( Customer c in Model)
+        {<tr> 
+            <td> @c.customerid</td>
+            <td>@c.name</td>
+            <td> @c.address</td>
+         <td> @c.phone</td>
+         </tr>
+        }
+   
+
+</table>

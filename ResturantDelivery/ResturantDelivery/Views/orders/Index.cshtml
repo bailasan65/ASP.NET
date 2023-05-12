@@ -1,0 +1,57 @@
+﻿@model List<orders>
+@{
+    float glprice = 0;
+}
+
+<a class=" btn btn-primary" asp-action="Add" asp-controller="orders"> Add </a>
+<form asp-action="search" asp-controller="orders" method="get">
+     Enter  CUSTOMERID 
+     <input type="number"  name="searchkey"/> 
+     <button type="submit">search </button>
+</form>
+
+<table class="table table-bordered table-bordered table-striped">
+    <tr>
+        <th> id</th>
+        <th> name</th>
+        <th>description </th>
+      <th> Quantity</th> 
+      <th> price</th>
+        <th> Bill</th>
+        <th>customerid</th>
+    </tr>
+ 
+     
+
+    @foreach (orders m in @Model)
+   {
+        <tr>
+            <td> @m.id</td>
+            <td>@m.name</td>
+            <td> @m.description</td>
+            <td>@m.quantity</td>
+                <td>@m.Menu.price</td>
+            <td>
+                @{
+                    float pricess = m.Menu.price * m.quantity;
+                }
+                @pricess$
+            </td>
+            @{
+                glprice = glprice + pricess;
+            }
+            <td> @m.customerid</td>
+            
+            <td> <a asp-action="Delete" asp-route-id="@m.id">Delete </a></td>
+        
+        
+        </tr>
+    }
+    <tr>
+
+
+</table>
+<h1>total</h1>
+<p>@glprice$</p>
+<a class=" btn btn-primary" asp-action="Index" asp-controller="Menu" style="margin-right:auto"> Menu</a>
+
